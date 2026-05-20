@@ -607,6 +607,17 @@
     letter-spacing:.01em;
   }
   .menu-precio .num small{font-size:1.7rem;vertical-align:top;color:var(--dorado);opacity:.7;font-style:italic}
+  .menu-disponible{
+    display:inline-block;
+    margin-top:18px;
+    font-family:'Jost',sans-serif;
+    font-size:.68rem;
+    letter-spacing:.32em;
+    color:var(--dorado);
+    text-transform:uppercase;
+    padding:8px 18px;
+    border:1px solid rgba(184,153,104,.5);
+  }
 
   .menu-bloque{margin-bottom:28px}
   .menu-bloque h4{
@@ -691,73 +702,111 @@
 
   /* ============= RESPONSIVE MÓVIL ============= */
   @media(max-width:768px){
-    nav{padding:12px 5%}
-    nav.scrolled{padding:10px 5%}
-    .logo{font-size:.85rem;letter-spacing:.12em}
+    nav{padding:10px 5%}
+    nav.scrolled{padding:8px 5%}
+    .logo{font-size:.72rem;letter-spacing:.22em}
 
-    section{padding:70px 5%}
-    .section-title{margin-bottom:40px}
-    .section-title .small{font-size:1.6rem}
-    .section-title h2{font-size:1.7rem;letter-spacing:.08em}
-    .section-title .deco::before,.section-title .deco::after{width:40px}
+    section{padding:55px 5%}
+    .section-title{margin-bottom:32px}
+    .section-title .small{font-size:.6rem;letter-spacing:.35em;margin-bottom:.7rem}
+    .section-title h2{font-size:1.7rem;letter-spacing:.02em}
+    .section-title .deco{margin-top:.8rem}
+    .section-title .deco::before,.section-title .deco::after{width:35px}
 
-    .hero{min-height:90vh;background-attachment:scroll}
-    .hanzi-big{font-size:3.2rem;letter-spacing:.15em;margin-bottom:.3rem}
-    .hero h1{font-size:1.9rem;margin-bottom:.8rem;letter-spacing:.06em}
-    .hero p{font-size:.95rem;margin-bottom:1.8rem;padding:0 10px}
-    .hero-cta{flex-direction:column;width:100%;padding:0 20px;gap:12px}
-    .hero-cta .btn{width:100%;justify-content:center;padding:14px 20px;font-size:.82rem;letter-spacing:.12em}
-    .scroll-indicator{bottom:25px;font-size:1.1rem}
-    .lantern{width:42px;height:55px}
-    .lantern[style*='right:8%']{right:4% !important}
-    .lantern[style*='right:10%']{right:5% !important}
+    .hero{min-height:85vh;background-attachment:scroll}
+    .hero-frame{inset:25px 4%}
+    .hero-mini{font-size:.62rem;letter-spacing:.35em;margin-bottom:1.2rem}
+    .hero-mini::before,.hero-mini::after{margin:0 8px}
+    .hanzi-big{font-size:2.4rem;letter-spacing:.2em;margin-bottom:.6rem}
+    .hero h1{font-size:1.9rem;margin-bottom:.5rem}
+    .hero-divider{margin:.8rem auto 1.2rem}
+    .hero-divider::before,.hero-divider::after{width:55px}
+    .hero p{font-size:.95rem;margin-bottom:1.6rem;padding:0 5px}
+    .hero-cta{flex-direction:column;width:100%;padding:0 30px;gap:10px}
+    .hero-cta .btn{width:100%;justify-content:center;padding:13px 18px;font-size:.7rem;letter-spacing:.22em}
 
-    .floating-cn{font-size:9rem;opacity:.5}
+    .floating-cn{font-size:7rem;opacity:.4}
 
-    .inicio-img{max-width:92%;padding:8px;margin-bottom:35px}
-    .info-card{padding:24px 20px}
-    .info-card .icn-big{font-size:2rem;margin-bottom:10px}
-    .info-card h4{font-size:.95rem;letter-spacing:.15em;margin-bottom:10px}
-    .info-card p{font-size:.92rem}
-    .info-card .horario-hora{font-size:1rem}
-    .info-card .tel-link{font-size:1.3rem;padding:7px 14px}
-    .mapa-full{height:240px;margin-top:30px}
+    .inicio-img{max-width:90%;margin-bottom:35px}
+    .inicio-img::before{inset:-8px}
+    .inicio-cards{gap:14px}
+    .info-card{padding:24px 22px}
+    .info-card .icn-big{width:30px;height:30px;margin-bottom:12px}
+    .info-card h4{font-size:1.2rem;margin-bottom:10px}
+    .info-card p{font-size:.88rem}
+    .info-card .horario-hora{font-size:1.15rem}
+    .info-card .horario-dia{font-size:.62rem;letter-spacing:.3em;margin-bottom:8px}
+    .info-card .horario-sub{font-size:.72rem;margin-top:10px}
+    .info-card .tel-link{font-size:1.4rem;margin-top:10px}
+    .info-card .btn-mapa{font-size:.6rem;padding:9px 18px;letter-spacing:.25em;margin-top:14px}
+    .mapa-full{height:220px;margin-top:25px}
 
-    .tabs{gap:10px;margin-bottom:35px}
-    .tab{padding:11px 22px;font-size:.75rem;letter-spacing:.12em}
+    .tabs{gap:10px;margin-bottom:28px}
+    .tab{padding:10px 20px;font-size:.62rem;letter-spacing:.25em}
 
-    .categoria{padding:24px 20px;margin-bottom:18px}
-    .categoria-header{gap:12px;margin-bottom:16px;padding-bottom:10px}
-    .categoria-emoji{font-size:1.8rem}
-    .categoria h3{font-size:1.15rem;letter-spacing:.06em}
-    .plato-item .nombre{font-size:.92rem}
-    .plato-item .precio{font-size:.9rem}
+    .categoria{padding:24px 22px;margin-bottom:14px}
+    .categoria-header{gap:14px;margin-bottom:18px;padding-bottom:12px}
+    .categoria h3{font-size:1.25rem}
+    .categoria h3 .cn{font-size:1.4rem}
+    .plato-item{padding:8px 0}
+    .plato-item .nombre{font-size:.88rem}
+    .plato-item .precio{font-size:.92rem}
 
-    .menu-dia{padding:50px 24px 35px;border-radius:10px}
-    .menu-dia::after{width:50px;height:50px;font-size:1.5rem;top:-25px}
-    .menu-precio .num{font-size:3.6rem}
-    .menu-precio .num small{font-size:1.3rem}
-    .menu-bloque h4{font-size:.9rem}
-    .menu-bloque ul{font-size:.9rem}
+    .menu-dia{padding:40px 24px 28px}
+    .menu-dia::before{inset:8px}
+    .menu-precio{margin:10px 0 24px}
+    .menu-precio .label{font-size:.6rem;letter-spacing:.32em}
+    .menu-precio .num{font-size:3.4rem}
+    .menu-precio .num small{font-size:1.2rem}
+    .menu-bloque{margin-bottom:22px}
+    .menu-bloque h4{font-size:1.05rem;margin-bottom:10px}
+    .menu-bloque ul{font-size:.88rem}
+    .menu-bebida{padding:18px;margin-top:24px;font-size:.88rem}
+    .menu-bebida .destacado{font-size:.6rem;letter-spacing:.3em}
+    .menu-nota{font-size:.7rem;margin-top:14px}
 
-    .galeria-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-    .foto-card .img-wrap{height:160px}
-    .foto-card-body{padding:14px 12px}
-    .foto-card h4{font-size:.82rem;letter-spacing:.04em;text-align:center}
-    .foto-card h4 .cn{display:block;margin:0 0 4px}
+    /* Galería scroll horizontal */
+    .galeria-grid{
+      display:flex;
+      grid-template-columns:none;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      gap:14px;
+      padding:6px 5% 18px;
+      margin:0 -5%;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:var(--dorado) transparent;
+    }
+    .galeria-grid::-webkit-scrollbar{height:4px}
+    .galeria-grid::-webkit-scrollbar-track{background:transparent}
+    .galeria-grid::-webkit-scrollbar-thumb{background:rgba(184,153,104,.5);border-radius:4px}
+    .foto-card{
+      flex:0 0 70%;
+      max-width:260px;
+      scroll-snap-align:center;
+    }
+    .foto-card .img-wrap{height:200px}
+    .foto-card-body{padding:16px 14px 18px}
+    .foto-card h4{font-size:1.05rem}
+    .foto-card h4 .cn{font-size:.95rem;margin-right:8px}
 
-    footer{padding:40px 18px 25px}
-    .footer-cn{font-size:1.4rem;letter-spacing:.25em}
-    footer h3{font-size:1rem}
-    footer p{font-size:.82rem}
+    footer{padding:45px 18px 28px}
+    .footer-cn{font-size:1.05rem;letter-spacing:.4em;margin-bottom:14px}
+    footer h3{font-size:1.2rem;margin-bottom:10px}
+    footer p{font-size:.78rem;margin-top:4px}
+    footer .small{font-size:.66rem;margin-top:14px}
   }
 
   @media(max-width:420px){
-    .galeria-grid{grid-template-columns:1fr;gap:18px}
-    .foto-card .img-wrap{height:220px}
-    .foto-card h4{font-size:.95rem}
-    .hero h1{font-size:1.65rem}
-    .hanzi-big{font-size:2.6rem}
+    section{padding:45px 5%}
+    .hero h1{font-size:1.7rem}
+    .hanzi-big{font-size:2.1rem}
+    .section-title h2{font-size:1.5rem}
+    .menu-dia{padding:32px 20px 24px}
+    .menu-precio .num{font-size:3rem}
+    .categoria{padding:22px 18px}
+    .foto-card{flex:0 0 78%}
   }
 
   /* ============= FOOTER ============= */
@@ -839,7 +888,6 @@
       <a href="#carta" class="btn btn-ghost">Ver Carta</a>
     </div>
   </div>
-  <div class="scroll-indicator">Descubrir</div>
 </header>
 
 <!-- INICIO: ubicación + horario + reservas -->
@@ -1055,6 +1103,7 @@
       <div class="menu-precio">
         <span class="label">Menú del Día — por sólo</span>
         <span class="num">10<small>,50€</small></span>
+        <span class="menu-disponible">De lunes a viernes · Mediodía</span>
       </div>
 
       <div class="menu-bloque">
@@ -1105,7 +1154,7 @@
         <span class="destacado">POSTRE</span><br>
         Tarta del día, Fruta china, Helado, Flan, Melocotón o Piña en almíbar
       </div>
-      <div class="menu-nota">Sólo para comer en el restaurante · Servido de lunes a viernes (excepto festivos)</div>
+      <div class="menu-nota">Sólo para comer en el restaurante · Excepto festivos</div>
     </div>
   </div>
 </section>
