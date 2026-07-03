@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Galería — Restaurante Chino Alfafar</title>
+<meta name="description" content="Galería de fotos de nuestros platos. Restaurante Chino Alfafar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="galeria">
+
+<nav id="nav">
+  <a href="index.html" class="logo">Restaurante <b>Chino</b> Alfafar</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+  <ul id="navList">
+    <li><a href="index.html#inicio" data-page="index" data-i18n="nav_inicio">Inicio</a></li>
+    <li><a href="carta.html" data-page="carta" data-i18n="nav_carta">Carta</a></li>
+    <li><a href="galeria.html" data-page="galeria" data-i18n="nav_galeria">Galería</a></li>
+    <li><a href="tel:963762403" class="nav-cta">963 762 403</a></li>
+    <li class="lang-switch"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></li>
+  </ul>
+</nav>
+
+<!-- GALERÍA -->
+<section class="galeria page-head" id="galeria">
+  <span class="floating-cn" style="top:10%;right:-3%">美</span>
+  <div class="pattern-bg"></div>
+  <div class="section-title reveal">
+    <div class="small" data-i18n="galeria_small">Fotografías</div>
+    <h2><span data-i18n="galeria_h2_a">Nuestra</span> <span class="accent" data-i18n="galeria_h2_b">Galería</span></h2>
+    <div class="deco"><span></span></div>
+  </div>
+
+  <div class="galeria-grid">
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/arroz-tres-delicias.png" alt="Arroz Tres Delicias"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">饭</span><span data-i18n="gal_1">Arroz Tres Delicias</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/tallarines.png" alt="Tallarines fritos"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">面</span><span data-i18n="gal_2">Tallarines Fritos</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/pollo-limon.png" alt="Pollo al limón"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">鸡</span><span data-i18n="gal_3">Pollo al Limón</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/ternera-champinones.png" alt="Ternera con bambú y setas"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">牛</span><span data-i18n="gal_4">Ternera con Bambú y Setas</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/arroz-marisco.png" alt="Arroz con gambas"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">海</span><span data-i18n="gal_5">Arroz con Gambas</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/tallarines-fritos.png" alt="Tallarines fritos"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">炒</span><span data-i18n="gal_6">Tallarines Fritos</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/variedad.png" alt="Variedad de platos"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">宴</span><span data-i18n="gal_7">Especialidades</span></h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/postre.png" alt="Postre"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">甜</span><span data-i18n="gal_8">Postres</span></h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-cn">中華料理</div>
+  <h3>Restaurante Chino Alfafar</h3>
+  <p>Avinguda de la Albufera, 46 · 46910 Alfafar, Valencia</p>
+  <p><span data-i18n="footer_reservas_label">Reservas:</span> <a href="tel:963762403">963 762 403</a> / <a href="tel:963756311">963 756 311</a></p>
+  <p class="small" data-i18n="footer_alergenos">Carta de alérgenos disponible en el restaurante.</p>
+  <p class="small">© <span id="year"></span> Restaurante Chino Alfafar · <span data-i18n="footer_copyright">Todos los derechos reservados</span></p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

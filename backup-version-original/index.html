@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Restaurante Chino Alfafar — Cocina china auténtica</title>
+<meta name="description" content="Restaurante Chino Alfafar. Carta tradicional, menú del día y reservas por teléfono. Avinguda de la Albufera, 46, Alfafar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rojo:#6b2733;
+    --rojo-vivo:#7d2f3c;
+    --rojo-oscuro:#4a1822;
+    --rojo-profundo:#2a0d14;
+    --dorado:#b89968;
+    --dorado-vivo:#c9aa78;
+    --dorado-suave:#9d8255;
+    --naranja:#a86b3c;
+    --rosa-chino:#7d4451;
+    --crema:#ede4d3;
+    --negro:#161210;
+    --negro-suave:#1f1a17;
+    --gris-suave:#3a2f2a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--negro);
+    color:#d4c8b3;
+    overflow-x:hidden;
+    line-height:1.7;
+    font-weight:300;
+    font-size:15px;
+  }
+  a{text-decoration:none;color:inherit}
+  ::selection{background:var(--dorado);color:var(--rojo-profundo)}
+
+  /* Scrollbar */
+  ::-webkit-scrollbar{width:12px}
+  ::-webkit-scrollbar-track{background:#1a0606}
+  ::-webkit-scrollbar-thumb{background:var(--rojo-oscuro);border-radius:10px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--rojo)}
+
+  /* Patrón decorativo */
+  .pattern-bg{
+    position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 15% 25%, rgba(255,204,51,.10) 0, transparent 38%),
+      radial-gradient(circle at 85% 75%, rgba(224,22,43,.22) 0, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(255,122,26,.08) 0, transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* Linterna decorativa */
+  .lantern{
+    position:absolute;
+    width:60px;height:80px;
+    background:radial-gradient(ellipse at center,#b8202e,#5a0a14 70%);
+    border-radius:50%/40%;
+    box-shadow:0 0 30px rgba(160,24,37,.55),inset 0 -10px 20px rgba(0,0,0,.4),inset 0 8px 15px rgba(255,255,255,.1);
+    opacity:.65;
+    animation:swing 4s ease-in-out infinite alternate;
+  }
+  .lantern::before{
+    content:'';position:absolute;top:-15px;left:50%;width:2px;height:15px;background:var(--dorado);transform:translateX(-50%);
+  }
+  .lantern::after{
+    content:'';position:absolute;bottom:-12px;left:50%;width:14px;height:14px;background:var(--dorado);transform:translateX(-50%);border-radius:0 0 50% 50%;
+    box-shadow:0 4px 0 -2px var(--dorado);
+  }
+  @keyframes swing{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+
+  /* Confeti chino - puntos dorados flotantes */
+  .confetti{
+    position:absolute;
+    width:8px;height:8px;
+    background:var(--dorado);
+    border-radius:50%;
+    opacity:.6;
+    animation:float 6s ease-in-out infinite;
+    box-shadow:0 0 10px var(--dorado);
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0)}
+    50%{transform:translateY(-30px) rotate(180deg)}
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 6%;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(20,4,4,.4);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:2px solid rgba(255,204,51,.25);
+    transition:all .3s ease;
+  }
+  nav.scrolled{
+    background:rgba(15,3,3,.97);
+    padding:10px 6%;
+    border-bottom-color:rgba(230,185,77,.4);
+    box-shadow:0 4px 20px rgba(0,0,0,.5);
+  }
+  .logo{
+    font-family:'Jost',sans-serif;
+    font-weight:400;
+    font-size:.92rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--crema);
+    text-decoration:none !important;
+    border:none;
+    display:inline-block;
+  }
+  .logo b{color:var(--dorado);font-weight:500}
+
+  nav ul{display:flex;list-style:none;gap:38px;align-items:center}
+  nav ul a{
+    color:#d4c8b3;text-decoration:none;font-weight:300;font-size:.82rem;
+    position:relative;transition:color .25s;
+    letter-spacing:.18em;text-transform:uppercase;
+  }
+  nav ul a:hover{color:var(--dorado)}
+  nav ul a::after{
+    content:'';position:absolute;left:0;bottom:-6px;height:1px;width:0;
+    background:var(--dorado);
+    transition:width .3s;
+  }
+  nav ul a:hover::after,nav ul a.active::after{width:100%}
+
+  .nav-cta{
+    background:transparent !important;
+    color:var(--dorado) !important;
+    padding:10px 22px;
+    border-radius:0;
+    font-size:.75rem !important;
+    letter-spacing:.25em;
+    transition:all .3s !important;
+    border:1px solid var(--dorado);
+    font-weight:400;
+  }
+  .nav-cta:hover{background:var(--dorado) !important;color:var(--negro) !important}
+  .nav-cta::after{display:none}
+
+  .menu-toggle{display:none;background:none;border:none;color:var(--dorado);font-size:1.7rem;cursor:pointer}
+
+  @media(max-width:920px){
+    nav ul{
+      position:absolute;top:100%;right:0;left:0;
+      flex-direction:column;background:rgba(20,4,4,.98);
+      padding:30px;gap:22px;
+      transform:translateY(-130%);transition:transform .35s ease;
+      border-bottom:2px solid var(--dorado);
+    }
+    nav ul.open{transform:translateY(0)}
+    .menu-toggle{display:block}
+  }
+
+  /* ============= HERO / PORTADA ============= */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg,rgba(10,2,2,.7) 0%,rgba(15,3,3,.65) 35%,rgba(15,3,3,.9) 100%),
+      url('assets/hero.jpg') center/cover no-repeat;
+    background-attachment:fixed;
+  }
+  .hero::after{
+    content:'';
+    position:absolute;inset:0;
+    background:radial-gradient(ellipse at center,rgba(10,2,2,.2) 0%,rgba(5,1,1,.8) 100%);
+    z-index:1;
+    pointer-events:none;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(45deg,transparent 0 70px,rgba(255,204,51,.04) 70px 71px),
+      repeating-linear-gradient(-45deg,transparent 0 70px,rgba(224,22,43,.04) 70px 71px);
+    z-index:1;
+  }
+  .hero-frame{
+    position:absolute;
+    inset:40px 5%;
+    border:1px solid rgba(230,185,77,.25);
+    z-index:2;
+    pointer-events:none;
+  }
+  .hero-frame::before,.hero-frame::after{
+    content:'';position:absolute;width:30px;height:30px;border:1px solid var(--dorado);
+  }
+  .hero-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+  .hero-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+
+  .hero-content{position:relative;z-index:3;padding:0 30px;max-width:920px;animation:fadeUp 1.6s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+
+  .hero-mini{
+    font-family:'Jost',sans-serif;
+    color:var(--dorado);
+    letter-spacing:.5em;
+    font-size:.72rem;
+    text-transform:uppercase;
+    margin-bottom:2rem;
+    opacity:.9;
+    font-weight:500;
+  }
+  .hero-mini::before,.hero-mini::after{
+    content:'—';margin:0 14px;color:rgba(230,185,77,.5);
+  }
+  .hero-divider{
+    display:flex;align-items:center;justify-content:center;gap:18px;
+    margin:1.5rem auto 2rem;
+  }
+  .hero-divider::before,.hero-divider::after{
+    content:'';height:1px;width:90px;background:rgba(184,153,104,.5);
+  }
+  .hero-divider span{
+    width:4px;height:4px;background:var(--dorado);border-radius:50%;
+    display:inline-block;
+  }
+
+  .hanzi-big{
+    font-family:'Noto Serif SC',serif;
+    color:var(--dorado);
+    font-size:clamp(2.5rem,6vw,4rem);
+    font-weight:600;
+    margin-bottom:1.2rem;
+    letter-spacing:.3em;
+    opacity:.88;
+    line-height:1;
+  }
+
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.6rem,6vw,4.5rem);
+    font-weight:400;
+    color:var(--crema);
+    letter-spacing:.04em;
+    margin-bottom:.5rem;
+    line-height:1.1;
+    text-shadow:0 4px 30px rgba(0,0,0,.7);
+  }
+  .hero h1 span{
+    color:var(--dorado);
+    font-style:italic;
+    font-weight:500;
+  }
+  .hero p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.05rem,1.6vw,1.3rem);
+    color:#e8d4b0;
+    max-width:600px;margin:0 auto 2.8rem;
+    font-weight:400;
+    font-style:italic;
+    line-height:1.6;
+    letter-spacing:.01em;
+  }
+  .hero-cta{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 36px;
+    border-radius:0;
+    font-family:'Jost',sans-serif;
+    font-weight:500;font-size:.78rem;
+    letter-spacing:.28em;text-transform:uppercase;
+    text-decoration:none;
+    cursor:pointer;
+    transition:all .4s ease;
+    position:relative;overflow:hidden;
+  }
+  .btn-primary{
+    background:var(--dorado);
+    color:var(--negro);
+    border:1px solid var(--dorado);
+  }
+  .btn-primary:hover{
+    background:transparent;
+    color:var(--dorado);
+    border-color:var(--dorado);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--crema);
+    border:1px solid rgba(247,231,212,.5);
+  }
+  .btn-ghost:hover{
+    border-color:var(--dorado);
+    color:var(--dorado);
+  }
+
+  /* Ribbons removidos para look más profesional */
+
+  .scroll-indicator{
+    position:absolute;bottom:50px;left:50%;transform:translateX(-50%);z-index:3;
+    color:var(--dorado);
+    font-family:'Jost',sans-serif;font-size:.65rem;
+    letter-spacing:.4em;text-transform:uppercase;
+    opacity:.7;
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .scroll-indicator::after{
+    content:'';width:1px;height:50px;
+    background:linear-gradient(to bottom,var(--dorado),transparent);
+    animation:scrollLine 2.5s ease-in-out infinite;
+  }
+  @keyframes scrollLine{
+    0%{transform:scaleY(0);transform-origin:top}
+    50%{transform:scaleY(1);transform-origin:top}
+    51%{transform-origin:bottom}
+    100%{transform:scaleY(0);transform-origin:bottom}
+  }
+
+  /* ============= SECCIONES GENERAL ============= */
+  section{
+    position:relative;
+    padding:110px 6%;
+    overflow:hidden;
+  }
+  .section-title{
+    text-align:center;
+    margin-bottom:60px;
+    position:relative;z-index:2;
+  }
+  .section-title .small{
+    display:block;
+    font-family:'Jost',sans-serif;
+    color:var(--dorado);
+    letter-spacing:.45em;
+    font-size:.68rem;
+    text-transform:uppercase;
+    margin-bottom:1.2rem;
+    font-weight:400;
+    opacity:.9;
+  }
+  .section-title h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.2rem,4.5vw,3.4rem);
+    color:var(--crema);
+    letter-spacing:.02em;
+    margin-bottom:0;
+    font-weight:400;
+  }
+  .section-title h2 span{
+    color:var(--dorado);
+    font-style:italic;
+    font-weight:300;
+  }
+  .section-title .deco{
+    display:flex;align-items:center;justify-content:center;gap:18px;margin-top:1.4rem;
+  }
+  .section-title .deco::before,
+  .section-title .deco::after{
+    content:'';height:1px;width:60px;background:rgba(184,153,104,.5);
+  }
+  .section-title .deco span{
+    width:5px;height:5px;background:var(--dorado);border-radius:50%;display:inline-block;
+  }
+
+  /* ============= INICIO (ubicación/horario/reservas) ============= */
+  .inicio{
+    background:linear-gradient(180deg,var(--negro) 0%,var(--negro-suave) 100%);
+  }
+  .inicio-wrap{
+    max-width:1200px;margin:0 auto;position:relative;z-index:2;
+  }
+
+  .inicio-img{
+    position:relative;
+    max-width:480px;
+    margin:0 auto 60px;
+    padding:0;
+    background:transparent;
+    border-radius:0;
+    box-shadow:0 25px 50px rgba(0,0,0,.55);
+    transition:transform .5s;
+  }
+  .inicio-img::before{
+    content:'';position:absolute;inset:-14px;border:1px solid rgba(184,153,104,.3);pointer-events:none;
+  }
+  .inicio-img img{filter:saturate(.9) contrast(1.02)}
+  @keyframes gradientShift{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+  .inicio-img:hover{transform:scale(1.015)}
+  .inicio-img img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:8px;
+    background:#0a0101;
+  }
+
+  .inicio-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  .info-card{
+    background:rgba(20,4,4,.55);
+    border:1px solid rgba(230,185,77,.2);
+    border-top:2px solid var(--dorado);
+    padding:36px 28px;
+    border-radius:4px;
+    position:relative;
+    overflow:hidden;
+    transition:all .35s;
+    display:flex;flex-direction:column;
+    text-align:center;
+  }
+  .info-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--dorado);
+    background:rgba(58,4,16,.45);
+  }
+  .info-card .icn-big{
+    width:38px;height:38px;
+    margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--dorado);
+  }
+  .info-card .icn-big svg{width:100%;height:100%;stroke:var(--dorado);stroke-width:1.2;fill:none}
+  .info-card h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--crema);
+    font-size:1.5rem;letter-spacing:.04em;
+    margin-bottom:16px;
+    font-weight:400;font-style:italic;
+  }
+  .info-card p{color:#bdb19b;font-size:.95rem;line-height:1.7;font-weight:300}
+  .info-card .horario-dia{
+    font-family:'Jost',sans-serif;color:var(--dorado);font-size:.7rem;
+    letter-spacing:.35em;font-weight:400;margin-bottom:12px;text-transform:uppercase;
+  }
+  .info-card .horario-hora{
+    font-family:'Cormorant Garamond',serif;color:var(--crema);font-size:1.4rem;
+    letter-spacing:.03em;font-weight:400;line-height:1.7;
+  }
+  .info-card .horario-sub{font-size:.78rem;color:#8a7a64;margin-top:14px;font-style:italic;letter-spacing:.05em}
+  .info-card a{color:#d4c8b3;transition:color .2s}
+  .info-card a:hover{color:var(--dorado)}
+  .info-card .tel-link{
+    font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.7rem;
+    color:var(--dorado);letter-spacing:.06em;
+    display:inline-block;margin-top:14px;
+    padding:0;border:none;border-radius:0;
+    transition:all .3s;
+    border-bottom:1px solid transparent;
+  }
+  .info-card .tel-link:hover{background:transparent;color:var(--crema);border-bottom-color:var(--dorado)}
+  .info-card .btn-mapa{
+    margin-top:18px;
+    display:inline-block;
+    font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.3em;font-weight:400;
+    color:var(--dorado);text-transform:uppercase;
+    padding:10px 22px;border:1px solid var(--dorado);border-radius:0;
+    transition:all .3s;
+  }
+  .info-card .btn-mapa:hover{background:var(--dorado);color:var(--negro)}
+
+  .mapa-full{
+    margin-top:50px;
+    border-radius:0;overflow:hidden;
+    border:1px solid rgba(184,153,104,.3);
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    height:340px;
+    max-width:1200px;margin-left:auto;margin-right:auto;
+    filter:grayscale(.3) contrast(.95);
+  }
+  .mapa-full iframe{width:100%;height:100%;border:0;display:block}
+
+  @media(max-width:920px){
+    .inicio-cards{grid-template-columns:1fr;gap:18px}
+    .inicio-img{margin-bottom:40px}
+    .mapa-full{height:260px;margin-top:30px}
+  }
+
+  /* ============= CARTA ============= */
+  .carta{
+    background:linear-gradient(180deg,var(--negro-suave) 0%,var(--negro) 50%,var(--negro-suave) 100%);
+  }
+
+  .tabs{
+    display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+    margin-bottom:55px;position:relative;z-index:2;
+  }
+  .tab{
+    padding:13px 36px;
+    background:transparent;
+    border:1px solid rgba(184,153,104,.4);
+    color:#d4c8b3;
+    font-family:'Jost',sans-serif;font-weight:400;
+    letter-spacing:.3em;text-transform:uppercase;
+    font-size:.72rem;
+    border-radius:0;
+    cursor:pointer;transition:all .35s;
+  }
+  .tab.active,.tab:hover{
+    background:var(--dorado);
+    color:var(--negro);
+    border-color:var(--dorado);
+  }
+
+  .tab-panel{display:none}
+  .tab-panel.active{display:block;animation:fadeUp .6s}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Carta completa - categorías */
+  .carta-container{max-width:1100px;margin:0 auto}
+  .categoria{
+    background:rgba(31,26,23,.4);
+    border:1px solid rgba(184,153,104,.15);
+    border-radius:2px;
+    padding:38px 44px;
+    margin-bottom:22px;
+    position:relative;
+    transition:all .4s;
+  }
+  .categoria:hover{
+    border-color:rgba(184,153,104,.5);
+    background:rgba(31,26,23,.7);
+  }
+  .categoria-header{
+    display:flex;align-items:center;gap:18px;
+    margin-bottom:24px;padding-bottom:16px;
+    border-bottom:1px solid rgba(184,153,104,.25);
+  }
+  .categoria-emoji{
+    font-size:2.2rem;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));
+  }
+  .categoria h3{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--crema);
+    font-size:1.7rem;
+    letter-spacing:.02em;
+    display:flex;align-items:baseline;gap:20px;
+    font-weight:400;
+    font-style:italic;
+  }
+  .categoria h3 .cn{
+    font-family:'Noto Serif SC',serif;
+    color:var(--dorado);
+    font-size:1.8rem;font-weight:400;
+    margin-right:6px;
+    line-height:1;
+    font-style:normal;
+  }
+
+  .platos-list{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px 35px;
+  }
+  .plato-item{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:10px 0;
+    border-bottom:1px dotted rgba(255,204,51,.15);
+    transition:all .25s;
+  }
+  .plato-item:hover{padding-left:8px;border-bottom-color:var(--dorado)}
+  .plato-item .nombre{color:#d4c8b3;font-size:.95rem;font-weight:300;letter-spacing:.01em}
+  .plato-item .precio{
+    color:var(--dorado);font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:1.05rem;white-space:nowrap;margin-left:12px;
+  }
+  .plato-item .dots{
+    flex:1;border-bottom:1px dotted rgba(184,153,104,.25);
+    margin:0 10px 5px;
+  }
+
+  @media(max-width:760px){
+    .platos-list{grid-template-columns:1fr;gap:5px 0}
+    .categoria{padding:25px 22px}
+  }
+
+  /* Menú del día */
+  .menu-dia{
+    max-width:780px;margin:0 auto;
+    background:rgba(31,26,23,.6);
+    border:1px solid rgba(184,153,104,.3);
+    border-radius:0;
+    padding:60px 50px;
+    position:relative;
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+  }
+  .menu-dia::before{
+    content:'';position:absolute;inset:12px;border:1px solid rgba(184,153,104,.15);pointer-events:none;
+  }
+
+  .menu-precio{text-align:center;margin:25px 0 30px}
+  .menu-precio .label{
+    font-family:'Jost',sans-serif;letter-spacing:.4em;color:var(--dorado);font-size:.68rem;text-transform:uppercase;
+    display:block;font-weight:400;
+  }
+  .menu-precio .num{
+    font-family:'Cormorant Garamond',serif;font-size:4.8rem;font-weight:400;
+    color:var(--dorado);
+    line-height:1;display:block;margin-top:10px;
+    letter-spacing:.01em;
+  }
+  .menu-precio .num small{font-size:1.7rem;vertical-align:top;color:var(--dorado);opacity:.7;font-style:italic}
+  .menu-disponible{
+    display:inline-block;
+    margin-top:18px;
+    font-family:'Jost',sans-serif;
+    font-size:.68rem;
+    letter-spacing:.32em;
+    color:var(--dorado);
+    text-transform:uppercase;
+    padding:8px 18px;
+    border:1px solid rgba(184,153,104,.5);
+  }
+
+  .menu-bloque{margin-bottom:28px}
+  .menu-bloque h4{
+    font-family:'Cormorant Garamond',serif;color:var(--dorado);
+    font-size:1.3rem;letter-spacing:.02em;
+    margin-bottom:14px;
+    padding-bottom:10px;border-bottom:1px solid rgba(184,153,104,.25);
+    font-weight:400;font-style:italic;
+  }
+  .menu-bloque ul{list-style:none;color:#bdb19b;font-size:.95rem;columns:2;column-gap:30px;font-weight:300}
+  .menu-bloque li{padding:4px 0;display:flex;align-items:center;gap:10px;break-inside:avoid}
+  .menu-bloque li::before{content:'—';color:var(--dorado);opacity:.6}
+  @media(max-width:600px){.menu-bloque ul{columns:1}}
+
+  .menu-bebida{
+    margin-top:36px;padding:24px;border-top:1px solid rgba(184,153,104,.2);
+    font-size:.95rem;color:#bdb19b;text-align:center;
+    background:rgba(0,0,0,.2);
+    font-weight:300;
+    font-family:'Cormorant Garamond',serif;
+  }
+  .menu-bebida .destacado{
+    color:var(--dorado);font-family:'Jost',sans-serif;letter-spacing:.35em;
+    font-size:.68rem;font-weight:400;text-transform:uppercase;
+  }
+  .menu-nota{font-size:.75rem;color:#7a6c58;margin-top:20px;text-align:center;font-style:italic;letter-spacing:.05em}
+
+  /* ============= GALERÍA ============= */
+  .galeria{
+    background:linear-gradient(180deg,var(--negro-suave) 0%,var(--negro) 100%);
+  }
+  .galeria-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:25px;max-width:1200px;margin:0 auto;
+  }
+  .foto-card{
+    position:relative;
+    border-radius:0;overflow:hidden;
+    background:var(--negro-suave);
+    transition:all .5s;
+    cursor:pointer;
+  }
+  .foto-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+  }
+  .foto-card .img-wrap{
+    overflow:hidden;
+    height:240px;
+    position:relative;
+  }
+  .foto-card img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .7s;
+  }
+  .foto-card:hover img{transform:scale(1.12)}
+  .foto-card .img-wrap::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(transparent 50%,rgba(20,4,4,.6));
+  }
+  .foto-card-body{
+    padding:24px 22px 26px;
+    background:var(--negro-suave);
+    text-align:center;
+  }
+  .foto-card h4{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--crema);
+    font-size:1.25rem;letter-spacing:.02em;
+    margin-bottom:0;
+    font-weight:400;
+    font-style:italic;
+  }
+  .foto-card h4 .cn{
+    font-family:'Noto Serif SC',serif;
+    color:var(--dorado);font-weight:400;
+    margin-right:10px;
+    font-style:normal;
+    font-size:1.1rem;
+  }
+  .foto-card p{color:#d4c098;font-size:.88rem;font-weight:300;line-height:1.5}
+
+  /* ============= RESPONSIVE MÓVIL ============= */
+  @media(max-width:768px){
+    nav{padding:10px 5%}
+    nav.scrolled{padding:8px 5%}
+    .logo{font-size:.72rem;letter-spacing:.22em}
+
+    section{padding:55px 5%}
+    .section-title{margin-bottom:32px}
+    .section-title .small{font-size:.6rem;letter-spacing:.35em;margin-bottom:.7rem}
+    .section-title h2{font-size:1.7rem;letter-spacing:.02em}
+    .section-title .deco{margin-top:.8rem}
+    .section-title .deco::before,.section-title .deco::after{width:35px}
+
+    .hero{min-height:85vh;background-attachment:scroll}
+    .hero-frame{inset:25px 4%}
+    .hero-mini{font-size:.62rem;letter-spacing:.35em;margin-bottom:1.2rem}
+    .hero-mini::before,.hero-mini::after{margin:0 8px}
+    .hanzi-big{font-size:2.4rem;letter-spacing:.2em;margin-bottom:.6rem}
+    .hero h1{font-size:1.9rem;margin-bottom:.5rem}
+    .hero-divider{margin:.8rem auto 1.2rem}
+    .hero-divider::before,.hero-divider::after{width:55px}
+    .hero p{font-size:.95rem;margin-bottom:1.6rem;padding:0 5px}
+    .hero-cta{flex-direction:column;width:100%;padding:0 30px;gap:10px}
+    .hero-cta .btn{width:100%;justify-content:center;padding:13px 18px;font-size:.7rem;letter-spacing:.22em}
+
+    .floating-cn{font-size:7rem;opacity:.4}
+
+    .inicio-img{max-width:90%;margin-bottom:35px}
+    .inicio-img::before{inset:-8px}
+    .inicio-cards{gap:14px}
+    .info-card{padding:24px 22px}
+    .info-card .icn-big{width:30px;height:30px;margin-bottom:12px}
+    .info-card h4{font-size:1.2rem;margin-bottom:10px}
+    .info-card p{font-size:.88rem}
+    .info-card .horario-hora{font-size:1.15rem}
+    .info-card .horario-dia{font-size:.62rem;letter-spacing:.3em;margin-bottom:8px}
+    .info-card .horario-sub{font-size:.72rem;margin-top:10px}
+    .info-card .tel-link{font-size:1.4rem;margin-top:10px}
+    .info-card .btn-mapa{font-size:.6rem;padding:9px 18px;letter-spacing:.25em;margin-top:14px}
+    .mapa-full{height:220px;margin-top:25px}
+
+    .tabs{gap:10px;margin-bottom:28px}
+    .tab{padding:10px 20px;font-size:.62rem;letter-spacing:.25em}
+
+    .categoria{padding:24px 22px;margin-bottom:14px}
+    .categoria-header{gap:14px;margin-bottom:18px;padding-bottom:12px}
+    .categoria h3{font-size:1.25rem}
+    .categoria h3 .cn{font-size:1.4rem}
+    .plato-item{padding:8px 0}
+    .plato-item .nombre{font-size:.88rem}
+    .plato-item .precio{font-size:.92rem}
+
+    .menu-dia{padding:40px 24px 28px}
+    .menu-dia::before{inset:8px}
+    .menu-precio{margin:10px 0 24px}
+    .menu-precio .label{font-size:.6rem;letter-spacing:.32em}
+    .menu-precio .num{font-size:3.4rem}
+    .menu-precio .num small{font-size:1.2rem}
+    .menu-bloque{margin-bottom:22px}
+    .menu-bloque h4{font-size:1.05rem;margin-bottom:10px}
+    .menu-bloque ul{font-size:.88rem}
+    .menu-bebida{padding:18px;margin-top:24px;font-size:.88rem}
+    .menu-bebida .destacado{font-size:.6rem;letter-spacing:.3em}
+    .menu-nota{font-size:.7rem;margin-top:14px}
+
+    /* Galería scroll horizontal */
+    .galeria-grid{
+      display:flex;
+      grid-template-columns:none;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      gap:14px;
+      padding:6px 5% 18px;
+      margin:0 -5%;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:var(--dorado) transparent;
+    }
+    .galeria-grid::-webkit-scrollbar{height:4px}
+    .galeria-grid::-webkit-scrollbar-track{background:transparent}
+    .galeria-grid::-webkit-scrollbar-thumb{background:rgba(184,153,104,.5);border-radius:4px}
+    .foto-card{
+      flex:0 0 70%;
+      max-width:260px;
+      scroll-snap-align:center;
+    }
+    .foto-card .img-wrap{height:200px}
+    .foto-card-body{padding:16px 14px 18px}
+    .foto-card h4{font-size:1.05rem}
+    .foto-card h4 .cn{font-size:.95rem;margin-right:8px}
+
+    footer{padding:45px 18px 28px}
+    .footer-cn{font-size:1.05rem;letter-spacing:.4em;margin-bottom:14px}
+    footer h3{font-size:1.2rem;margin-bottom:10px}
+    footer p{font-size:.78rem;margin-top:4px}
+    footer .small{font-size:.66rem;margin-top:14px}
+  }
+
+  @media(max-width:420px){
+    section{padding:45px 5%}
+    .hero h1{font-size:1.7rem}
+    .hanzi-big{font-size:2.1rem}
+    .section-title h2{font-size:1.5rem}
+    .menu-dia{padding:32px 20px 24px}
+    .menu-precio .num{font-size:3rem}
+    .categoria{padding:22px 18px}
+    .foto-card{flex:0 0 78%}
+  }
+
+  /* ============= FOOTER ============= */
+  footer{
+    background:var(--negro);
+    text-align:center;
+    padding:70px 20px 40px;
+    border-top:1px solid rgba(184,153,104,.2);
+    position:relative;
+  }
+  footer::before{display:none}
+  .footer-cn{
+    font-family:'Noto Serif SC',serif;
+    color:var(--dorado);
+    font-size:1.4rem;letter-spacing:.45em;font-weight:400;margin-bottom:20px;
+    opacity:.8;
+  }
+  footer h3{
+    font-family:'Cormorant Garamond',serif;color:var(--crema);
+    letter-spacing:.05em;margin-bottom:14px;font-weight:400;font-size:1.5rem;
+    font-style:italic;
+  }
+  footer p{color:#8a7a64;font-size:.85rem;margin-top:8px;font-weight:300;letter-spacing:.04em}
+  footer .small{font-size:.72rem;color:#5a4d3e;margin-top:20px;letter-spacing:.08em}
+  footer a{color:var(--dorado);font-weight:400;border-bottom:1px solid transparent;transition:all .3s}
+  footer a:hover{border-bottom-color:var(--dorado)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal-left{opacity:0;transform:translateX(-40px);transition:all 1s}
+  .reveal-right{opacity:0;transform:translateX(40px);transition:all 1s}
+  .reveal-left.visible,.reveal-right.visible{opacity:1;transform:none}
+  .reveal-scale{opacity:0;transform:scale(.94);transition:all .85s}
+  .reveal-scale.visible{opacity:1;transform:scale(1)}
+
+  /* Si JS está deshabilitado, todo visible */
+  .no-js .reveal,.no-js .reveal-left,.no-js .reveal-right,.no-js .reveal-scale{
+    opacity:1 !important;transform:none !important;
+  }
+
+  .floating-cn{
+    position:absolute;
+    font-family:'Noto Serif SC',serif;
+    color:rgba(230,185,77,.025);
+    font-size:16rem;
+    font-weight:bold;
+    pointer-events:none;
+    z-index:0;
+    user-select:none;
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#portada" class="logo">Restaurante <b>Chino</b> Alfafar</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+  <ul id="navList">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="tel:963762403" class="nav-cta">963 762 403</a></li>
+  </ul>
+</nav>
+
+<!-- PORTADA / HERO -->
+<header class="hero" id="portada">
+  <div class="hero-frame"></div>
+
+  <div class="hero-content">
+    <div class="hero-mini">Auténtica Cocina China · Alfafar</div>
+    <div class="hanzi-big">中華料理</div>
+    <h1>Restaurante <span>Chino</span> Alfafar</h1>
+    <div class="hero-divider"><span></span></div>
+    <p>Cocina china tradicional en el corazón de Alfafar. Sabores auténticos, recetas de siempre y un menú del día para los que saben disfrutar.</p>
+    <div class="hero-cta">
+      <a href="#inicio" class="btn btn-primary">Reservar Mesa</a>
+      <a href="#carta" class="btn btn-ghost">Ver Carta</a>
+    </div>
+  </div>
+</header>
+
+<!-- INICIO: ubicación + horario + reservas -->
+<section class="inicio" id="inicio">
+  <span class="floating-cn" style="top:5%;right:-3%">福</span>
+  <div class="pattern-bg"></div>
+  <div class="section-title reveal">
+    <div class="small">Visítanos</div>
+    <h2>Ven a <span>Visitarnos</span></h2>
+    <div class="deco"><span></span></div>
+  </div>
+
+  <div class="inicio-wrap">
+    <div class="inicio-img reveal-scale">
+      <img src="assets/fachada.png" alt="Fachada del Restaurante Chino Alfafar" />
+    </div>
+
+    <div class="inicio-cards">
+      <div class="info-card reveal">
+        <span class="icn-big">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </span>
+        <h4>Ubicación</h4>
+        <p>Avinguda de la Albufera, 46<br>46910 Alfafar, Valencia</p>
+        <a href="https://www.google.com/maps?q=Avinguda+de+la+Albufera+46,+46910+Alfafar,+Valencia" target="_blank" rel="noopener" class="btn-mapa">Cómo llegar</a>
+      </div>
+
+      <div class="info-card reveal">
+        <span class="icn-big">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <h4>Horario</h4>
+        <p class="horario-dia">Todos los días</p>
+        <p class="horario-hora">13:00 – 17:00<br>20:00 – 24:00</p>
+        <p class="horario-sub">De lunes a domingo, comida y cena</p>
+      </div>
+
+      <div class="info-card reveal">
+        <span class="icn-big">
+          <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        </span>
+        <h4>Reservas</h4>
+        <p>Llámanos para reservar tu mesa</p>
+        <a href="tel:963762403" class="tel-link">963 762 403</a>
+      </div>
+    </div>
+
+    <div class="mapa-full reveal">
+      <iframe
+        src="https://www.google.com/maps?q=Avinguda+de+la+Albufera+46,+46910+Alfafar,+Valencia&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Restaurante Chino Alfafar"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CARTA -->
+<section class="carta" id="carta">
+  <span class="floating-cn" style="bottom:-5%;left:-3%">食</span>
+  <div class="pattern-bg"></div>
+  <div class="section-title reveal">
+    <div class="small">Nuestros Platos</div>
+    <h2>Nuestra <span>Carta</span></h2>
+    <div class="deco"><span></span></div>
+  </div>
+
+  <div class="tabs reveal">
+    <button class="tab active" data-tab="completa">Carta Completa</button>
+    <button class="tab" data-tab="menudia">Menú del Día</button>
+  </div>
+
+  <!-- Tab 1: CARTA COMPLETA -->
+  <div class="tab-panel active" id="completa">
+    <div class="carta-container">
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">前</span>Entrantes y Sopas</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Rollitos de primavera</span><span class="dots"></span><span class="precio">1,20€</span></div>
+          <div class="plato-item"><span class="nombre">Pan de gambas</span><span class="dots"></span><span class="precio">2,35€</span></div>
+          <div class="plato-item"><span class="nombre">Wan-tun frito</span><span class="dots"></span><span class="precio">3,15€</span></div>
+          <div class="plato-item"><span class="nombre">Pan chino</span><span class="dots"></span><span class="precio">2,10€</span></div>
+          <div class="plato-item"><span class="nombre">Entremeses variados</span><span class="dots"></span><span class="precio">6,65€</span></div>
+          <div class="plato-item"><span class="nombre">Sopa de aleta de tiburón</span><span class="dots"></span><span class="precio">3,25€</span></div>
+          <div class="plato-item"><span class="nombre">Sopa de fideos</span><span class="dots"></span><span class="precio">2,75€</span></div>
+          <div class="plato-item"><span class="nombre">Sopa agripicante</span><span class="dots"></span><span class="precio">2,75€</span></div>
+          <div class="plato-item"><span class="nombre">Sopa won-ton</span><span class="dots"></span><span class="precio">3,10€</span></div>
+          <div class="plato-item"><span class="nombre">Sopa con champiñón</span><span class="dots"></span><span class="precio">2,75€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">饭</span>Arroces y Tallarines</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Arroz frito tres delicias</span><span class="dots"></span><span class="precio">3,20€</span></div>
+          <div class="plato-item"><span class="nombre">Arroz frito con gambas</span><span class="dots"></span><span class="precio">3,85€</span></div>
+          <div class="plato-item"><span class="nombre">Arroz frito con verduras</span><span class="dots"></span><span class="precio">3,95€</span></div>
+          <div class="plato-item"><span class="nombre">Arroz frito con ternera</span><span class="dots"></span><span class="precio">4,15€</span></div>
+          <div class="plato-item"><span class="nombre">Arroz frito al curry</span><span class="dots"></span><span class="precio">3,35€</span></div>
+          <div class="plato-item"><span class="nombre">Arroz frito especial</span><span class="dots"></span><span class="precio">4,25€</span></div>
+          <div class="plato-item"><span class="nombre">Tallarines fritos tres delicias</span><span class="dots"></span><span class="precio">4,15€</span></div>
+          <div class="plato-item"><span class="nombre">Tallarines fritos con ternera</span><span class="dots"></span><span class="precio">4,15€</span></div>
+          <div class="plato-item"><span class="nombre">Tallarines fritos con pollo</span><span class="dots"></span><span class="precio">4,15€</span></div>
+          <div class="plato-item"><span class="nombre">Espagueti chino con gambas</span><span class="dots"></span><span class="precio">4,35€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">蛋</span>Huevos y Verduras</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Huevos revueltos con gambas</span><span class="dots"></span><span class="precio">3,35€</span></div>
+          <div class="plato-item"><span class="nombre">Huevos revueltos con jamón</span><span class="dots"></span><span class="precio">3,15€</span></div>
+          <div class="plato-item"><span class="nombre">Bambú y setas chinas salteadas</span><span class="dots"></span><span class="precio">4,65€</span></div>
+          <div class="plato-item"><span class="nombre">Verdura rebozada</span><span class="dots"></span><span class="precio">4,65€</span></div>
+          <div class="plato-item"><span class="nombre">Brotes de soja salteados</span><span class="dots"></span><span class="precio">3,30€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">海</span>Pescados y Mariscos</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Pescado con salsa de soja</span><span class="dots"></span><span class="precio">4,95€</span></div>
+          <div class="plato-item"><span class="nombre">Pescado frito</span><span class="dots"></span><span class="precio">4,95€</span></div>
+          <div class="plato-item"><span class="nombre">Pescado agridulce</span><span class="dots"></span><span class="precio">4,95€</span></div>
+          <div class="plato-item"><span class="nombre">Calamares en salsa a la plancha</span><span class="dots"></span><span class="precio">4,95€</span></div>
+          <div class="plato-item"><span class="nombre">Sepia con guindillas</span><span class="dots"></span><span class="precio">4,95€</span></div>
+          <div class="plato-item"><span class="nombre">Gambas con verduras</span><span class="dots"></span><span class="precio">5,85€</span></div>
+          <div class="plato-item"><span class="nombre">Gambas agridulces</span><span class="dots"></span><span class="precio">4,95€</span></div>
+          <div class="plato-item"><span class="nombre">Langostinos a la plancha</span><span class="dots"></span><span class="precio">6,95€</span></div>
+          <div class="plato-item"><span class="nombre">Langostinos fritos</span><span class="dots"></span><span class="precio">6,95€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">鸡</span>Aves</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Pollo con almendras</span><span class="dots"></span><span class="precio">4,85€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo con bambú y setas chinas</span><span class="dots"></span><span class="precio">4,85€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo con verduras</span><span class="dots"></span><span class="precio">4,85€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo con champiñones</span><span class="dots"></span><span class="precio">4,85€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo con salsa de sésamo</span><span class="dots"></span><span class="precio">4,75€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo con brotes de soja</span><span class="dots"></span><span class="precio">4,75€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo al curry</span><span class="dots"></span><span class="precio">4,75€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo al limón</span><span class="dots"></span><span class="precio">4,85€</span></div>
+          <div class="plato-item"><span class="nombre">Pollo agridulce</span><span class="dots"></span><span class="precio">4,75€</span></div>
+          <div class="plato-item"><span class="nombre">Bolitas de pollo fritas</span><span class="dots"></span><span class="precio">4,75€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">牛</span>Carne de Ternera</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Ternera con salsa de ostras</span><span class="dots"></span><span class="precio">5,55€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera con bambú y setas</span><span class="dots"></span><span class="precio">5,55€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera con champiñones</span><span class="dots"></span><span class="precio">5,55€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera con cebolla</span><span class="dots"></span><span class="precio">5,15€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera al curry</span><span class="dots"></span><span class="precio">5,15€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera con verdura</span><span class="dots"></span><span class="precio">5,15€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera picante</span><span class="dots"></span><span class="precio">5,15€</span></div>
+          <div class="plato-item"><span class="nombre">Ternera con patatas fritas</span><span class="dots"></span><span class="precio">5,15€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">猪</span>Solomillo de Cerdo</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Solomillo agridulce</span><span class="dots"></span><span class="precio">4,35€</span></div>
+          <div class="plato-item"><span class="nombre">Solomillo con bambú</span><span class="dots"></span><span class="precio">5,75€</span></div>
+          <div class="plato-item"><span class="nombre">Costillas de cerdo asadas</span><span class="dots"></span><span class="precio">5,55€</span></div>
+          <div class="plato-item"><span class="nombre">Solomillo con champiñones</span><span class="dots"></span><span class="precio">5,55€</span></div>
+          <div class="plato-item"><span class="nombre">Solomillo con verduras</span><span class="dots"></span><span class="precio">5,55€</span></div>
+          <div class="plato-item"><span class="nombre">Cerdo agridulce</span><span class="dots"></span><span class="precio">5,15€</span></div>
+        </div>
+      </div>
+
+      <div class="categoria reveal">
+        <div class="categoria-header">
+          <h3><span class="cn">特</span>Platos Especiales</h3>
+        </div>
+        <div class="platos-list">
+          <div class="plato-item"><span class="nombre">Ku-bak tres delicias</span><span class="dots"></span><span class="precio">6,55€</span></div>
+          <div class="plato-item"><span class="nombre">Ku-bak con gambas</span><span class="dots"></span><span class="precio">6,55€</span></div>
+          <div class="plato-item"><span class="nombre">Marisco variado a la plancha</span><span class="dots"></span><span class="precio">6,95€</span></div>
+          <div class="plato-item"><span class="nombre">Ancas de rana fritas</span><span class="dots"></span><span class="precio">6,95€</span></div>
+          <div class="plato-item"><span class="nombre">Pato Pekín especial</span><span class="dots"></span><span class="precio">9,65€</span></div>
+          <div class="plato-item"><span class="nombre">Pato a la naranja</span><span class="dots"></span><span class="precio">6,95€</span></div>
+          <div class="plato-item"><span class="nombre">Pato con piña</span><span class="dots"></span><span class="precio">6,55€</span></div>
+          <div class="plato-item"><span class="nombre">Familia feliz especial</span><span class="dots"></span><span class="precio">6,95€</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tab 2: MENÚ DEL DÍA -->
+  <div class="tab-panel" id="menudia">
+    <div class="menu-dia reveal-scale">
+      <div class="menu-precio">
+        <span class="label">Menú del Día — por sólo</span>
+        <span class="num">10<small>,50€</small></span>
+        <span class="menu-disponible">De lunes a viernes · Mediodía</span>
+      </div>
+
+      <div class="menu-bloque">
+        <h4>1.º Plato · a elegir</h4>
+        <ul>
+          <li>Rollo de primavera</li>
+          <li>Ensalada</li>
+          <li>Pan de gambas</li>
+          <li>Pan chino</li>
+          <li>Sopa de pollo con champiñones</li>
+        </ul>
+      </div>
+
+      <div class="menu-bloque">
+        <h4>2.º Plato · a elegir</h4>
+        <ul>
+          <li>Arroz Tres Delicias</li>
+          <li>Arroz blanco</li>
+          <li>Tallarines fritos tres delicias</li>
+        </ul>
+      </div>
+
+      <div class="menu-bloque">
+        <h4>3.º Plato · a elegir</h4>
+        <ul>
+          <li>Pollo con almendras</li>
+          <li>Pollo con champiñones</li>
+          <li>Bolitas de pollo fritas</li>
+          <li>Pollo agridulce</li>
+          <li>Pollo al limón</li>
+          <li>Ternera con salsa de ostras</li>
+          <li>Ternera con champiñones</li>
+          <li>Ternera con cebolla</li>
+          <li>Ternera con verdura</li>
+          <li>Ternera picante</li>
+          <li>Ternera con patatas fritas</li>
+          <li>Cerdo agridulce</li>
+          <li>Cerdo con verdura</li>
+          <li>Costilla de cerdo asada o barbacoa</li>
+          <li>Verduras variadas salteadas</li>
+          <li>Pescado agridulce</li>
+        </ul>
+      </div>
+
+      <div class="menu-bebida">
+        <span class="destacado">BEBIDA</span><br>
+        Copa de Vino · Cerveza · Refresco<br><br>
+        <span class="destacado">POSTRE</span><br>
+        Tarta del día, Fruta china, Helado, Flan, Melocotón o Piña en almíbar
+      </div>
+      <div class="menu-nota">Sólo para comer en el restaurante · Excepto festivos</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+  <span class="floating-cn" style="top:10%;right:-3%">美</span>
+  <div class="pattern-bg"></div>
+  <div class="section-title reveal">
+    <div class="small">Fotografías</div>
+    <h2>Nuestra <span>Galería</span></h2>
+    <div class="deco"><span></span></div>
+  </div>
+
+  <div class="galeria-grid">
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/arroz-tres-delicias.png" alt="Arroz Tres Delicias"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">饭</span>Arroz Tres Delicias</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/tallarines.png" alt="Tallarines fritos"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">面</span>Tallarines Fritos</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/pollo-limon.png" alt="Pollo al limón"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">鸡</span>Pollo al Limón</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/ternera-champinones.png" alt="Ternera con bambú y setas"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">牛</span>Ternera con Bambú y Setas</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/arroz-marisco.png" alt="Arroz con gambas"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">海</span>Arroz con Gambas</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/tallarines-fritos.png" alt="Tallarines fritos"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">炒</span>Tallarines Fritos</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/variedad.png" alt="Variedad de platos"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">宴</span>Especialidades</h4>
+      </div>
+    </div>
+
+    <div class="foto-card reveal-scale">
+      <div class="img-wrap"><img src="assets/postre.png" alt="Postre"></div>
+      <div class="foto-card-body">
+        <h4><span class="cn">甜</span>Postres</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-cn">中華料理</div>
+  <h3>Restaurante Chino Alfafar</h3>
+  <p>Avinguda de la Albufera, 46 · 46910 Alfafar, Valencia</p>
+  <p>Reservas: <a href="tel:963762403">963 762 403</a></p>
+  <p class="small">© <span id="year"></span> Restaurante Chino Alfafar · Todos los derechos reservados</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  menuToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+      document.getElementById(tab.dataset.tab).querySelectorAll('.reveal,.reveal-scale,.reveal-left,.reveal-right').forEach(el => {
+        el.classList.remove('visible');
+        observer.observe(el);
+      });
+    });
+  });
+
+  const allReveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+
+  allReveals.forEach(el => observer.observe(el));
+
+  // Fallback: garantiza que todo se vea aunque el observer falle
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      allReveals.forEach(el => el.classList.add('visible'));
+    }, 1500);
+  });
+
+  document.querySelectorAll('.galeria-grid .foto-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 80) + 'ms';
+  });
+  document.querySelectorAll('.carta-container .categoria').forEach((el, i) => {
+    el.style.transitionDelay = (i * 90) + 'ms';
+  });
+
+  // Parallax suave linternas y caracteres
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    document.querySelectorAll('.lantern').forEach((l, i) => {
+      l.style.transform = `translateY(${y * (0.08 + i * 0.02)}px)`;
+    });
+    document.querySelectorAll('.floating-cn').forEach((el, i) => {
+      el.style.transform = `translateY(${y * (0.04 + i * 0.02)}px)`;
+    });
+  }, { passive: true });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('#navList a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      const top = s.offsetTop - 120;
+      if (window.scrollY >= top) current = s.id;
+    });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
