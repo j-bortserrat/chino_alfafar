@@ -104,6 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
         filtrosWrap.appendChild(btn);
       });
 
+      // "Contacto": no filtra, lleva al apartado "Ven a Visitarnos" de la portada
+      const contacto = document.createElement('a');
+      contacto.className = 'filtro filtro-contacto';
+      contacto.href = 'index.html#inicio';
+      contacto.textContent = I18N[lang].filtro_contacto;
+      filtrosWrap.appendChild(contacto);
+
       filtrosWrap.querySelectorAll('.filtro').forEach(btn => {
         btn.addEventListener('click', () => {
           filtroActivo = btn.dataset.filtro;

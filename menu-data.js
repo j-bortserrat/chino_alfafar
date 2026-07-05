@@ -1,6 +1,6 @@
 const MENU_CATEGORIAS = [
   {
-    id: 'ensaladas', cn: '冷', es: 'Ensaladas', en: 'Salads', foto: null,
+    id: 'ensaladas', cn: '冷', es: 'Ensaladas', en: 'Salads', foto: 'assets/ensaladas-real.jpg',
     items: [
       { es: 'Ensalada china', en: 'Chinese salad', precio: '2,95€' },
       { es: 'Ensalada de algas', en: 'Seaweed salad', precio: '2,95€' },
@@ -28,7 +28,7 @@ const MENU_CATEGORIAS = [
     ]
   },
   {
-    id: 'arroces', cn: '饭', es: 'Arroz y Tallarines', en: 'Rice & Noodles', foto: 'assets/arroz-tres-delicias.png',
+    id: 'arroces', cn: '饭', es: 'Arroz y Tallarines', en: 'Rice & Noodles', foto: 'assets/arroces-real.jpg',
     items: [
       { es: 'Arroz frito tres delicias', en: 'Three delicacies fried rice', precio: '3,20€' },
       { es: 'Arroz frito con gambas', en: 'Fried rice with prawns', precio: '3,95€' },
@@ -101,7 +101,7 @@ const MENU_CATEGORIAS = [
     ]
   },
   {
-    id: 'ternera', cn: '牛', es: 'Carne de Ternera', en: 'Beef', foto: 'assets/ternera-champinones.png',
+    id: 'ternera', cn: '牛', es: 'Carne de Ternera', en: 'Beef', foto: 'assets/ternera-real.jpg',
     items: [
       { es: 'Ternera con salsa de ostras', en: 'Beef in oyster sauce', precio: '5,35€' },
       { es: 'Ternera con bambú y setas chinas', en: 'Beef with bamboo shoots and Chinese mushrooms', precio: '5,65€' },
@@ -138,7 +138,7 @@ const MENU_CATEGORIAS = [
     ]
   },
   {
-    id: 'especiales', cn: '特', es: 'Platos Especiales', en: "Chef's Specials", foto: 'assets/variedad.png',
+    id: 'especiales', cn: '特', es: 'Platos Especiales', en: "Chef's Specials", foto: 'assets/especiales-real.jpg',
     items: [
       { es: 'Ku-bak con tres delicias', en: 'Ku-bak with three delicacies', precio: '6,25€' },
       { es: 'Ku-bak con gambas', en: 'Ku-bak with prawns', precio: '6,55€' },
@@ -160,7 +160,7 @@ const MENU_CATEGORIAS = [
 ];
 
 const MENU_DEL_DIA = {
-  precio: '10,50',
+  precio: '11,50',
   disponible: { es: 'De lunes a viernes · Mediodía', en: 'Monday to Friday · Midday only' },
   primero: {
     label: { es: '1.º Plato · a elegir', en: '1st Course · choose one' },

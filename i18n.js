@@ -3,6 +3,7 @@ const I18N = {
     nav_inicio: "Inicio",
     nav_carta: "Carta",
     nav_galeria: "Galería",
+    nav_contacto: "Contacto",
 
     hero_mini: "Auténtica Cocina China · Alfafar",
     hero_p: "Cocina china tradicional en el corazón de Alfafar. Sabores auténticos, recetas de siempre y un menú del día para los que saben disfrutar.",
@@ -36,6 +37,7 @@ const I18N = {
     tab_completa: "Carta Completa",
     tab_menudia: "Menú del Día",
     filtro_todos: "Todos",
+    filtro_contacto: "Contacto",
 
     menudia_label: "Menú del Día — por sólo",
     menudia_bebida_label: "Bebida",
@@ -58,6 +60,7 @@ const I18N = {
     nav_inicio: "Home",
     nav_carta: "Menu",
     nav_galeria: "Gallery",
+    nav_contacto: "Contact",
 
     hero_mini: "Authentic Chinese Cuisine · Alfafar",
     hero_p: "Traditional Chinese cooking in the heart of Alfafar. Authentic flavours, time-honoured recipes and a daily set menu for those who know how to enjoy a good meal.",
@@ -91,6 +94,7 @@ const I18N = {
     tab_completa: "Full Menu",
     tab_menudia: "Menu of the Day",
     filtro_todos: "All",
+    filtro_contacto: "Contact",
 
     menudia_label: "Menu of the Day — for only",
     menudia_bebida_label: "Drink",
