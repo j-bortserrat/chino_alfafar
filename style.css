@@ -871,7 +871,7 @@ section{
   section{padding:55px 5%}
   .page-head{padding:0 5% 35px}
   .page-head-band{padding:65px 5% 20px;margin-bottom:26px}
-  .dragon-row{height:70px;margin:0 0 6px}
+  .dragon-row{height:70px;margin-bottom:6px}
   .dragon-row .dragon-big{left:-8px;width:105px}
   .dragon-row .dragon-small{right:-8px;width:100px}
   .page-head-band .section-title{margin-top:-58px}
