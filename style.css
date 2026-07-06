@@ -871,10 +871,12 @@ section{
   section{padding:55px 5%}
   .page-head{padding:0 5% 35px}
   .page-head-band{padding:65px 5% 20px;margin-bottom:26px}
-  .dragon-row{height:78px;margin:0 0 6px}
-  .dragon-row .dragon-big{left:-25px;width:130px}
-  .dragon-row .dragon-small{right:-20px;width:115px}
-  .page-head-band .section-title{margin-top:4px}
+  .dragon-row{height:95px;margin:0 0 8px}
+  .dragon-row .dragon-big{left:-75px;width:150px}
+  .dragon-row .dragon-small{right:-70px;width:140px}
+  .page-head-band .section-title{margin-top:-75px}
+  .page-head-band .section-title h2{font-size:1.45rem}
+  .page-head-band .section-title .small{letter-spacing:.25em}
   .section-title{margin-bottom:32px}
   .section-title .small{font-size:.6rem;letter-spacing:.35em;margin-bottom:.7rem}
   .section-title h2{font-size:1.7rem;letter-spacing:.02em}
