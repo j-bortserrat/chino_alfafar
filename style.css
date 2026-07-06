@@ -939,28 +939,22 @@ section{
   .menu-bebida .destacado{font-size:.6rem;letter-spacing:.3em}
   .menu-nota{font-size:.7rem;margin-top:14px}
 
-  /* Galería scroll horizontal */
+  /* Galería en collage (columnas tipo mosaico, sin scroll horizontal) */
   .galeria-grid{
-    display:flex;
-    grid-template-columns:none;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    gap:14px;
-    padding:6px 5% 18px;
-    margin:0 -5%;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:thin;
-    scrollbar-color:var(--rojo) transparent;
+    display:block;
+    columns:2;
+    column-gap:12px;
   }
-  .galeria-grid::-webkit-scrollbar{height:4px}
-  .galeria-grid::-webkit-scrollbar-track{background:transparent}
-  .galeria-grid::-webkit-scrollbar-thumb{background:rgba(196,110,144,.5);border-radius:4px}
   .foto-card{
-    flex:0 0 70%;
-    max-width:260px;
-    scroll-snap-align:center;
+    display:inline-block;
+    width:100%;
+    margin-bottom:12px;
+    break-inside:avoid;
   }
-  .foto-card .img-wrap{height:200px}
+  .foto-card:nth-child(3n+1) .img-wrap{height:220px}
+  .foto-card:nth-child(3n+2) .img-wrap{height:150px}
+  .foto-card:nth-child(3n) .img-wrap{height:180px}
+  .foto-card .img-wrap{height:170px}
   .foto-card-body{padding:16px 14px 18px}
   .foto-card h4{font-size:1.05rem}
   .foto-card h4 .cn{font-size:.95rem;margin-right:8px}
