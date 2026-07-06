@@ -29,6 +29,24 @@ const I18N = {
     footer_reservas_label: "Reservas:",
     footer_alergenos: "Carta de alérgenos disponible en el restaurante.",
     footer_copyright: "Todos los derechos reservados",
+    footer_legal_aviso: "Aviso legal",
+    footer_legal_privacidad: "Privacidad",
+    footer_legal_cookies: "Cookies",
+    footer_legal_config: "Configurar cookies",
+    footer_credit: "Restaurante Chino Alfafar · Derechos reservados · Desarrollo por Wertical Studio",
+
+    cookie_banner_text: "Usamos cookies propias y de terceros (como Google Maps) para mejorar tu experiencia. Puedes aceptarlas, rechazarlas o configurarlas.",
+    cookie_accept_all: "Aceptar todas",
+    cookie_reject: "Rechazar no esenciales",
+    cookie_configure: "Configurar",
+    cookie_save: "Guardar preferencias",
+    cookie_back: "Volver",
+    cookie_necessary_title: "Necesarias",
+    cookie_necessary_desc: "Imprescindibles para el funcionamiento de la web. Siempre activas.",
+    cookie_maps_title: "Mapa de Google",
+    cookie_maps_desc: "Permite mostrar el mapa de ubicación embebido de Google Maps.",
+    map_consent_prompt: "Para ver el mapa necesitas aceptar las cookies de terceros de Google Maps.",
+    map_consent_btn: "Aceptar y ver mapa",
 
     carta_small: "Nuestros Platos",
     carta_h2_a: "Nuestra",
@@ -86,6 +104,24 @@ const I18N = {
     footer_reservas_label: "Reservations:",
     footer_alergenos: "Allergen menu available at the restaurant.",
     footer_copyright: "All rights reserved",
+    footer_legal_aviso: "Legal Notice",
+    footer_legal_privacidad: "Privacy",
+    footer_legal_cookies: "Cookies",
+    footer_legal_config: "Cookie settings",
+    footer_credit: "Restaurante Chino Alfafar · All rights reserved · Built by Wertical Studio",
+
+    cookie_banner_text: "We use our own and third-party cookies (such as Google Maps) to improve your experience. You can accept, reject or configure them.",
+    cookie_accept_all: "Accept all",
+    cookie_reject: "Reject non-essential",
+    cookie_configure: "Configure",
+    cookie_save: "Save preferences",
+    cookie_back: "Back",
+    cookie_necessary_title: "Necessary",
+    cookie_necessary_desc: "Essential for the website to function. Always active.",
+    cookie_maps_title: "Google Maps",
+    cookie_maps_desc: "Allows the embedded Google Maps location map to be displayed.",
+    map_consent_prompt: "To view the map you need to accept Google Maps third-party cookies.",
+    map_consent_btn: "Accept and view map",
 
     carta_small: "Our Dishes",
     carta_h2_a: "Our",
@@ -127,6 +163,18 @@ const PAGE_META = {
   galeria: {
     es: { title: "Galería — Restaurante Chino Alfafar", desc: "Galería de fotos de nuestros platos. Restaurante Chino Alfafar." },
     en: { title: "Gallery — Restaurante Chino Alfafar", desc: "Photo gallery of our dishes. Restaurante Chino Alfafar." }
+  },
+  'aviso-legal': {
+    es: { title: "Aviso Legal — Restaurante Chino Alfafar", desc: "Aviso legal del sitio web de Restaurante Chino Alfafar." },
+    en: { title: "Legal Notice — Restaurante Chino Alfafar", desc: "Legal notice for the Restaurante Chino Alfafar website." }
+  },
+  privacidad: {
+    es: { title: "Política de Privacidad — Restaurante Chino Alfafar", desc: "Política de privacidad del sitio web de Restaurante Chino Alfafar." },
+    en: { title: "Privacy Policy — Restaurante Chino Alfafar", desc: "Privacy policy for the Restaurante Chino Alfafar website." }
+  },
+  cookies: {
+    es: { title: "Política de Cookies — Restaurante Chino Alfafar", desc: "Política de cookies del sitio web de Restaurante Chino Alfafar." },
+    en: { title: "Cookie Policy — Restaurante Chino Alfafar", desc: "Cookie policy for the Restaurante Chino Alfafar website." }
   }
 };
 

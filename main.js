@@ -104,13 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         filtrosWrap.appendChild(btn);
       });
 
-      // "Contacto": no filtra, lleva al apartado "Ven a Visitarnos" de la portada
-      const contacto = document.createElement('a');
-      contacto.className = 'filtro filtro-contacto';
-      contacto.href = 'index.html#inicio';
-      contacto.textContent = I18N[lang].filtro_contacto;
-      filtrosWrap.appendChild(contacto);
-
       filtrosWrap.querySelectorAll('.filtro').forEach(btn => {
         btn.addEventListener('click', () => {
           filtroActivo = btn.dataset.filtro;
@@ -132,17 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
       cartaApp.innerHTML = '';
       MENU_CATEGORIAS.forEach((cat, i) => {
         const catEl = document.createElement('div');
-        catEl.className = 'categoria reveal' + (cat.foto ? ' with-foto' : '') + (filtroActivo !== 'todos' && filtroActivo !== cat.id ? ' hidden' : '');
+        catEl.className = 'categoria reveal' + (filtroActivo !== 'todos' && filtroActivo !== cat.id ? ' hidden' : '');
         catEl.dataset.cat = cat.id;
         if (animate) catEl.style.transitionDelay = (i * 60) + 'ms';
 
-        let html = '';
-        if (cat.foto) {
-          html += `<div class="categoria-foto"><img src="${cat.foto}" alt="${cat[lang]}" loading="lazy"></div>`;
-        }
-        html += `<div class="categoria-header"><h3><span class="cn">${cat.cn}</span>${cat[lang]}</h3></div>`;
+        let html = `<div class="categoria-header"><h3><span class="cn">${cat.cn}</span>${cat[lang]}</h3></div>`;
         html += '<div class="platos-list">';
+        let lastGrupo = null;
         cat.items.forEach(item => {
+          if (item.grupo && item.grupo[lang] !== lastGrupo) {
+            lastGrupo = item.grupo[lang];
+            html += `<div class="plato-grupo">${lastGrupo}</div>`;
+          }
           html += `<div class="plato-item"><span class="nombre">${item[lang]}</span><span class="dots"></span><span class="precio">${item.precio}</span></div>`;
         });
         html += '</div>';
