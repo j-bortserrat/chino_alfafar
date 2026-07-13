@@ -892,7 +892,12 @@ section{
   .section-title .deco{margin-top:.8rem}
   .section-title .deco::before,.section-title .deco::after{width:35px}
 
-  .hero{min-height:85vh;background-attachment:scroll}
+  .hero{
+    min-height:85vh;background-attachment:scroll;
+    background:
+      linear-gradient(180deg,rgba(10,2,2,.15) 0%,rgba(15,3,3,.05) 35%,rgba(15,3,3,.55) 100%),
+      url('assets/hero-movil.jpg') center/cover no-repeat;
+  }
   .hero-content{height:85vh;padding-bottom:10vh}
   .hero-frame{inset:25px 4%}
   .hero-mini{font-size:.62rem;letter-spacing:.35em;margin-bottom:1.2rem}
