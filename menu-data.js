@@ -183,7 +183,7 @@ const MENU_CATEGORIAS = [
       { grupo: { es: 'Rosados', en: 'Rosé Wines' }, es: 'Sangría (1 litro)', en: 'Sangria (1 litre)', precio: '8,95€' },
       { grupo: { es: 'Rosados', en: 'Rosé Wines' }, es: 'Lambrusco', en: 'Lambrusco', precio: '10,95€' },
       { grupo: { es: 'Rosados', en: 'Rosé Wines' }, es: 'Matheus', en: 'Matheus', precio: '10,95€' },
-      { grupo: { es: 'Rosados', en: 'Rosé Wines' }, es: 'Lancers', en: 'Lancers', precio: '7,55€' },
+      { grupo: { es: 'Rosados', en: 'Rosé Wines' }, es: 'Lancers', en: 'Lancers', precio: '10,95€' },
 
       { grupo: { es: 'Tintos', en: 'Red Wines' }, es: 'Vino de la Casa (3/4)', en: 'House wine (75cl)', precio: '7,95€' },
       { grupo: { es: 'Tintos', en: 'Red Wines' }, es: 'Castillo de Liria (3/4)', en: 'Castillo de Liria (75cl)', precio: '7,95€' },
