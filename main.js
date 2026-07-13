@@ -140,6 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
           html += `<div class="plato-item"><span class="nombre">${item[lang]}</span><span class="dots"></span><span class="precio">${item.precio}</span></div>`;
         });
         html += '</div>';
+        if (cat.nota) {
+          html += `<div class="categoria-nota">${cat.nota[lang]}</div>`;
+        }
         catEl.innerHTML = html;
         cartaApp.appendChild(catEl);
       });

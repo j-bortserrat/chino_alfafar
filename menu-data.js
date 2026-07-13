@@ -200,6 +200,36 @@ const MENU_CATEGORIAS = [
       { grupo: { es: 'Blancos', en: 'White Wines' }, es: 'Marina Alta', en: 'Marina Alta', precio: '12,95€' },
       { grupo: { es: 'Blancos', en: 'White Wines' }, es: 'Cava', en: 'Cava', precio: '16,95€' },
     ]
+  },
+  {
+    id: 'postres', cn: '甜', es: 'Postres', en: 'Desserts', foto: null,
+    nota: {
+      es: 'Los ingredientes y alérgenos de los productos están a su disposición. Consulta el resto de postres en la carta del restaurante.',
+      en: 'Ingredients and allergen information for these products are available on request. Ask us about the rest of our desserts in the restaurant’s menu.'
+    },
+    items: [
+      { es: 'Helado', en: 'Ice cream', precio: '2,50€' },
+      { es: 'Helado frito', en: 'Fried ice cream', precio: '3,75€' },
+      { es: 'Helado con nueces', en: 'Ice cream with walnuts', precio: '3,75€' },
+      { es: 'Helado flambeado', en: 'Flambéed ice cream', precio: '4,75€' },
+      { es: 'Flan', en: 'Flan', precio: '2,50€' },
+      { es: 'Flan con nata', en: 'Flan with whipped cream', precio: '4,15€' },
+      { es: 'Flan con nata y nueces', en: 'Flan with whipped cream and walnuts', precio: '4,95€' },
+      { es: 'Nata montada', en: 'Whipped cream', precio: '2,45€' },
+      { es: 'Nata con nueces', en: 'Whipped cream with walnuts', precio: '4,15€' },
+      { es: 'Plátano frito', en: 'Fried banana', precio: '4,15€' },
+      { es: 'Plátano flambeado', en: 'Flambéed banana', precio: '4,95€' },
+      { es: 'Plátano frito con nata', en: 'Fried banana with whipped cream', precio: '5,15€' },
+      { es: 'Manzana frita', en: 'Fried apple', precio: '4,15€' },
+      { es: 'Manzana flambeada', en: 'Flambéed apple', precio: '4,95€' },
+      { es: 'Manzana flambeada con nata', en: 'Flambéed apple with whipped cream', precio: '5,15€' },
+      { es: 'Piña frita', en: 'Fried pineapple', precio: '4,15€' },
+      { es: 'Piña flambeada', en: 'Flambéed pineapple', precio: '4,95€' },
+      { es: 'Piña flambeada con nata', en: 'Flambéed pineapple with whipped cream', precio: '5,15€' },
+      { es: 'Fruta china', en: 'Chinese fruit', precio: '3,15€' },
+      { es: 'Postre de la casa', en: 'House dessert', precio: '5,75€' },
+      { es: 'Banana split', en: 'Banana split', precio: '7,75€' },
+    ]
   }
 ];
 
